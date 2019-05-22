@@ -13,7 +13,8 @@ enable_testing()
 
 list(FILTER SRC EXCLUDE REGEX Main.cpp)
 
-add_executable(NesEmulatorTest ${SRC})
+aux_source_directory(${PROJECT_SOURCE_DIR}/test TESTSRC)
+add_executable(NesEmulatorTest ${SRC} ${TESTSRC})
 target_link_libraries(NesEmulatorTest gmock_main gtest gmock pthread)
 
 add_test(NAME mytest COMMAND NesEmulatorTest)
